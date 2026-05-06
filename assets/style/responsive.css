@@ -1,0 +1,6 @@
+@media screen and (min-width: 1440px) {
+
+    .header_section img{
+        padding: 0px max(140px, calc(50% - 720px));
+    }
+}
