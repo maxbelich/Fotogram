@@ -15,6 +15,7 @@
 body {
   /* 4. Increase line-height */
   line-height: 1.5;
+  font-size: 16px;
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
 }
@@ -51,10 +52,50 @@ h1, h2, h3, h4, h5, h6 {
 
     --bg_darkblue: #06171E;
     --bg_lightblue: #09212A;
+    --text_grey: #99ACB3;
+    --h_white: #FFFFFF;
 }
 
 
 .header_section{
     background-color: var(--bg_lightblue);
     padding: 20px 0px;
+}
+
+body{
+    background-color: var(--bg_darkblue);
+}
+
+h1{
+    color: var(--h_white);
+    font-family: 'Figtree';
+    font-weight: 800;
+    font-size: 1.75rem;
+}
+
+
+
+.footer_section{
+    background-color: var(--bg_lightblue);
+    padding: 20px 0px;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer_img{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.footer_text{
+    color: var(--text_grey);
+    font-family: 'Figtree';
+    font-weight: 400;
+    font-size: 0.875rem;
 }

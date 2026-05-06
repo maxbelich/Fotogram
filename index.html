@@ -1,28 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fotogram</title>
-    <link rel="shortcut icon" href="./assets/icons/favicon-16x16.png" type="image/x-icon">
-    <link rel="stylesheet" href="./assets/style/style.css">
-    <link rel="stylesheet" href="./assets/style/fonts.css">
-    <link rel="stylesheet" href="./assets/style/responsive.css">
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/favicon-16x16.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./assets/style/style.css" />
+    <link rel="stylesheet" href="./assets/style/fonts.css" />
+    <link rel="stylesheet" href="./assets/style/responsive.css" />
     <script src="script.js"></script>
-</head>
+  </head>
 
-<body>
-
+  <body onload="render()">
     <header class="header_section">
-        <div class="header">
-        <img src="./assets/icons/fotogram_header.svg" alt="">
-        </div>
+      <div class="header">
+        <img src="./assets/icons/fotogram_header.svg" alt="Fotogram Logo" />
+      </div>
     </header>
 
-    <main></main>
+    <main>
+        <div class="caption">
+        <h1>Your Personal photo album</h1>
+        </div>
 
-    <footer></footer>
-    
-</body>
+        <section id="photoGallery">
 
+        </section>
+
+    </main>
+
+    <footer class="footer_section">
+      <div class="footer">
+        <div class="footer_img">
+          <img src="./assets/icons/footer_logo.svg" alt="DA Logo" />
+        </div>
+        <div class="footer_text">
+            <p>
+                © 2023 Developer Akademie GmbH
+            </p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
