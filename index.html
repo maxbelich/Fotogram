@@ -22,15 +22,29 @@
       </div>
     </header>
 
-    <main>
-        <div class="caption">
+    <main class="content">
+      <div class="caption">
         <h1>Your Personal photo album</h1>
+      </div>
+
+      <section id="photoGallery"></section>
+
+      <section class="overlay_section d_none" id="d_none_toggle">
+        <div class="overlay_card">
+          <div class="overlay_card_content">
+            <div class="card_headline">
+              <div>header</div>
+              <img src="./assets/icons/closeicon.svg" alt="">
+            </div>
+            <img src="./assets/imgs/alaska.jpg" alt="picture" />
+            <div class="card_bottom">
+                <img class="arrow_left" src="./assets/icons/arrow_button.svg" alt="arrow left">
+                <div>1/12</div>
+                <img class="arrow_right" src="./assets/icons/arrow_button.svg" alt="arrow right">
+            </div>
+          </div>
         </div>
-
-        <section id="photoGallery">
-
-        </section>
-
+      </section>
     </main>
 
     <footer class="footer_section">
@@ -39,9 +53,7 @@
           <img src="./assets/icons/footer_logo.svg" alt="DA Logo" />
         </div>
         <div class="footer_text">
-            <p>
-                © 2023 Developer Akademie GmbH
-            </p>
+          <p>© 2023 Developer Akademie GmbH</p>
         </div>
       </div>
     </footer>
