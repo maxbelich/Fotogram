@@ -138,16 +138,13 @@ h1 {
   border-radius: 16px;
   border: 2px solid #124658;
   object-fit: cover;
+  cursor: pointer;
 
   transition: border 700ms;
 }
 
 .photo:hover {
   border: 2px solid #6bc1e1;
-}
-
-.d_none {
-  display: none;
 }
 
 .overlay_section {
@@ -163,6 +160,10 @@ h1 {
 
   color: var(--h_white);
   font-family: 'Figtree';
+}
+
+.d_none {
+  display: none;
 }
 
 .overlay_card {
@@ -194,4 +195,13 @@ h1 {
 
 .arrow_left{
     rotate: 180deg;
+    cursor: pointer;
+}
+
+.arrow_right{
+    cursor: pointer;
+}
+
+.close_overlay{
+    cursor: pointer;
 }

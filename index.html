@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="./assets/style/style.css" />
     <link rel="stylesheet" href="./assets/style/fonts.css" />
     <link rel="stylesheet" href="./assets/style/responsive.css" />
-    <script src="script.js"></script>
   </head>
 
   <body onload="render()">
@@ -29,12 +28,12 @@
 
       <section id="photoGallery"></section>
 
-      <section class="overlay_section d_none" id="d_none_toggle">
-        <div class="overlay_card">
+      <section onclick="closeOverlay()" class="overlay_section d_none" id="overlaySection">
+        <div class="overlay_card" id="overlayCard">
           <div class="overlay_card_content">
             <div class="card_headline">
               <div>header</div>
-              <img src="./assets/icons/closeicon.svg" alt="">
+              <img onclick="closeOverlay()" id="closeOverlay" class="close_overlay" src="./assets/icons/closeicon.svg" alt="close-icon">
             </div>
             <img src="./assets/imgs/alaska.jpg" alt="picture" />
             <div class="card_bottom">
@@ -58,4 +57,5 @@
       </div>
     </footer>
   </body>
+  <script src="script.js"></script>
 </html>

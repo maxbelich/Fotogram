@@ -17,6 +17,21 @@ function render() {
   const contentImgs = document.getElementById("photoGallery");
   for (let i = 0; i < myImgs.length; i++) {
     contentImgs.innerHTML += `
-    <img class="photo" src="${myImgs[i]}" alt="Photo ${i + 1}">`;
+    <img class="photo" onclick="openOverlay(${i})" src="${myImgs[i]}" alt="Photo ${i + 1}">`;
   }
 }
+
+function openOverlay() {
+  let overlay = document.getElementById("overlaySection");
+  overlay.classList.remove("d_none");
+}
+
+function closeOverlay() {
+  let closeWindow = document.getElementById("overlaySection");
+  closeWindow.classList.add("d_none");
+}
+
+const overlayCardStop = document.getElementById("overlayCard");
+overlayCardStop.addEventListener("click", function (event) {
+  event.stopPropagation();
+});
