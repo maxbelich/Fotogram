@@ -14,48 +14,11 @@
     <link rel="stylesheet" href="./assets/style/responsive.css" />
   </head>
 
-  <body onload="render()">
-    <header class="header_section">
-      <div class="header">
-        <img src="./assets/icons/fotogram_header.svg" alt="Fotogram Logo" />
-      </div>
-    </header>
+  <body onload="init()">
+    <div id="main"></div>
+    <dialog id="dialog"></dialog>
 
-    <main class="content">
-      <div class="caption">
-        <h1>Your Personal photo album</h1>
-      </div>
-
-      <section id="photoGallery"></section>
-
-      <section onclick="closeOverlay()" class="overlay_section d_none" id="overlaySection">
-        <div class="overlay_card" id="overlayCard">
-          <div class="overlay_card_content">
-            <div class="card_headline">
-              <div>header</div>
-              <img onclick="closeOverlay()" id="closeOverlay" class="close_overlay" src="./assets/icons/closeicon.svg" alt="close-icon">
-            </div>
-            <img id="overlayImg" src="" alt="picture" />
-            <div class="card_bottom">
-                <img class="arrow_left" src="./assets/icons/arrow_button.svg" alt="arrow left">
-                <div>1/12</div>
-                <img class="arrow_right" src="./assets/icons/arrow_button.svg" alt="arrow right">
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer_section">
-      <div class="footer">
-        <div class="footer_img">
-          <img src="./assets/icons/footer_logo.svg" alt="DA Logo" />
-        </div>
-        <div class="footer_text">
-          <p>© 2023 Developer Akademie GmbH</p>
-        </div>
-      </div>
-    </footer>
+    
   </body>
   <script src="script.js"></script>
 </html>
