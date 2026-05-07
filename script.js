@@ -1,4 +1,4 @@
-let myImgs = [
+const myImgs = [
   "./assets/imgs/alaska.jpg",
   "./assets/imgs/atmosphere.png",
   "./assets/imgs/bird.jpg",
@@ -21,13 +21,23 @@ function render() {
   }
 }
 
-function openOverlay() {
-  let overlay = document.getElementById("overlaySection");
+function openOverlay(i) {
+  showOverlay();
+  setOverlayImage(i);
+}
+
+function showOverlay() {
+  const overlay = document.getElementById("overlaySection");
   overlay.classList.remove("d_none");
 }
 
+function setOverlayImage(i) {
+  const overlayImg = document.getElementById("overlayImg");
+  overlayImg.src = myImgs[i];
+}
+
 function closeOverlay() {
-  let closeWindow = document.getElementById("overlaySection");
+  const closeWindow = document.getElementById("overlaySection");
   closeWindow.classList.add("d_none");
 }
 
