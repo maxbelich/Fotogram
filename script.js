@@ -1,4 +1,4 @@
-const myImgs = [
+const MYIMGS = [
   "alaska.jpg",
   "atmosphere.png",
   "bird.jpg",
@@ -15,12 +15,12 @@ const myImgs = [
 
 let currentImgIndex = 0;
 
-const content = document.getElementById("main");
+const CONTENT = document.getElementById("main");
 
-const dialog = document.getElementById("dialog");
+const DIALOG = document.getElementById("dialog");
 
 function init() {
-  content.innerHTML = renderMain();
+  CONTENT.innerHTML = renderMain();
   renderImgs();
 }
 
@@ -74,27 +74,34 @@ function renderFooter() {
 
 function renderImgs() {
   const photoGallery = document.getElementById("photo_gallery");
-  for (let i = 0; i < myImgs.length; i++) {
+  for (let i = 0; i < MYIMGS.length; i++) {
     photoGallery.innerHTML += getImgsTemplate(i);
   }
 }
 
 function getImgsTemplate(i) {
   return /*html*/ `
-    <img 
-      class="photo"
-      onclick="openOverlay(${i})"
-      src="./assets/imgs/${myImgs[i]}"
-      alt="Photo ${i + 1}"
+  <button class="photo_button"
+      onclick="openOverlay(${i})">
+    <img class="photo"
+      src="./assets/imgs/${MYIMGS[i]}"
+      alt="${MYIMGS[i].slice(0, 1).toUpperCase() + MYIMGS[i].slice(1, -4)}"
     >
+  </button>
   `;
 }
 
 function openOverlay(i) {
   currentImgIndex = i;
-  dialog.innerHTML = renderDialog(currentImgIndex);
-  dialog.showModal();
+  DIALOG.innerHTML = renderDialog(currentImgIndex);
+  DIALOG.showModal();
   stopDialogClosingOnCard();
+  focusNextButton();
+}
+
+function focusNextButton() {
+  const nextButton = document.getElementById("nextButton");
+  nextButton.focus();
 }
 
 function renderDialog(i) {
@@ -102,24 +109,20 @@ function renderDialog(i) {
     <div class="overlay_card" id="overlayCard">
       <div class="overlay_card_content">
         <div class="card_headline">
-          <div>${myImgs[i].slice(0, -4)}</div>
-          
-          <img class="close_dialog" onclick="closeDialog()" src="./assets/icons/closeicon.svg" alt="Close">
-        
+          <div>${MYIMGS[i].slice(0, 1).toUpperCase() + MYIMGS[i].slice(1, -4)}</div>
+        <button class="close_dialog" onclick="closeDialog()">
+          <img src="./assets/icons/closeicon.svg" alt="Close">
+        </button>
         </div>
-
-        <img id="overlayImg" class="overlay_img" src="./assets/imgs/${myImgs[i]}" alt="Photo ${i + 1}">
-
+          <img id="overlayImg" class="overlay_img" src="./assets/imgs/${MYIMGS[i]}" alt="Photo ${i + 1}">
         <div class="card_bottom">
-            <button onclick="showPreviousImg()" class="arrows_button">
-          <img  class="arrow_left" src="./assets/icons/arrow_img.svg" alt="arrow left">
-</button>
-
-          <div class="img_counter">${i + 1}/${myImgs.length}</div>
-          <button onclick="showNextImg()" class="arrows_button">
-          <img class="arrow_right" src="./assets/icons/arrow_img.svg" alt="arrow right">
-</button>
-
+          <button onclick="showPreviousImg('prev')" class="arrows_button">
+            <img  class="arrow_left" src="./assets/icons/arrow_img.svg" alt="arrow left">
+          </button>
+        <div class="img_counter">${i + 1}/${MYIMGS.length}</div>
+          <button onclick="showNextImg('next')" class="arrows_button" id="nextButton">
+            <img class="arrow_right" src="./assets/icons/arrow_img.svg" alt="arrow right">
+          </button>
         </div>
       </div>
     </div>
@@ -127,12 +130,12 @@ function renderDialog(i) {
 }
 
 function closeDialog() {
-  dialog.close();
+  DIALOG.close();
 }
 
 function showNextImg() {
   currentImgIndex++;
-  if (currentImgIndex >= myImgs.length) {
+  if (currentImgIndex >= MYIMGS.length) {
     currentImgIndex = 0;
   }
   updateDialogImg();
@@ -141,13 +144,13 @@ function showNextImg() {
 function showPreviousImg() {
   currentImgIndex--;
   if (currentImgIndex < 0) {
-    currentImgIndex = myImgs.length - 1;
+    currentImgIndex = MYIMGS.length - 1;
   }
   updateDialogImg();
 }
 
 function updateDialogImg() {
-  dialog.innerHTML = renderDialog(currentImgIndex);
+  DIALOG.innerHTML = renderDialog(currentImgIndex);
   stopDialogClosingOnCard();
 }
 
@@ -158,6 +161,6 @@ function stopDialogClosingOnCard() {
   });
 }
 
-dialog.addEventListener("click", function () {
+DIALOG.addEventListener("click", function () {
   closeDialog();
 });
