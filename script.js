@@ -16,6 +16,7 @@ const myImgs = [
 let currentImgIndex = 0;
 
 const content = document.getElementById("main");
+
 const dialog = document.getElementById("dialog");
 
 function init() {
@@ -73,7 +74,6 @@ function renderFooter() {
 
 function renderImgs() {
   const photoGallery = document.getElementById("photo_gallery");
-
   for (let i = 0; i < myImgs.length; i++) {
     photoGallery.innerHTML += getImgsTemplate(i);
   }
@@ -114,10 +114,12 @@ function renderDialog(i) {
             <button onclick="showPreviousImg()" class="arrows_button">
           <img  class="arrow_left" src="./assets/icons/arrow_img.svg" alt="arrow left">
 </button>
+
           <div class="img_counter">${i + 1}/${myImgs.length}</div>
           <button onclick="showNextImg()" class="arrows_button">
           <img class="arrow_right" src="./assets/icons/arrow_img.svg" alt="arrow right">
 </button>
+
         </div>
       </div>
     </div>
@@ -130,21 +132,17 @@ function closeDialog() {
 
 function showNextImg() {
   currentImgIndex++;
-
   if (currentImgIndex >= myImgs.length) {
     currentImgIndex = 0;
   }
-
   updateDialogImg();
 }
 
 function showPreviousImg() {
   currentImgIndex--;
-
   if (currentImgIndex < 0) {
     currentImgIndex = myImgs.length - 1;
   }
-
   updateDialogImg();
 }
 
@@ -155,7 +153,6 @@ function updateDialogImg() {
 
 function stopDialogClosingOnCard() {
   const overlayCard = document.getElementById("overlayCard");
-
   overlayCard.addEventListener("click", function (event) {
     event.stopPropagation();
   });
