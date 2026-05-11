@@ -102,6 +102,8 @@ button {
 .footer_section {
   background-color: var(--bg_lightblue);
   padding: 20px 0px;
+  position: sticky;
+  bottom: 0;
 }
 
 .footer {

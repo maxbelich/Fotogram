@@ -12,17 +12,16 @@ const MYIMGS = [
   "travel.jpg",
   "winter.jpg",
 ];
-
 let currentImgIndex = 0;
-
 const CONTENT = document.getElementById("main");
-
 const DIALOG = document.getElementById("dialog");
+
 /** start rendering */
 function init() {
   CONTENT.innerHTML = renderMain();
   renderImgs();
 }
+
 /** render all html sections into the site */
 function renderMain() {
   return /*html*/ `
@@ -34,6 +33,7 @@ function renderMain() {
     ${renderFooter()}
   `;
 }
+
 /** creates html for header */
 function renderHeader() {
   return /*html*/ `
@@ -42,10 +42,11 @@ function renderHeader() {
         <img 
           src="./assets/icons/fotogram_header.svg" 
           alt="Fotogram Logo">
-    </div>
+      </div>
     </header>
   `;
 }
+
 /** creates html for caption of site */
 function renderCaption() {
   return /*html*/ `
@@ -54,6 +55,7 @@ function renderCaption() {
     </div>
   `;
 }
+
 /** cretes html for footer and informations */
 function renderFooter() {
   return /*html*/ `
@@ -71,6 +73,7 @@ function renderFooter() {
     </footer>
   `;
 }
+
 /** renders all imgs from MYIMGS-array into gallery */
 function renderImgs() {
   const photoGallery = document.getElementById("photo_gallery");
@@ -78,6 +81,7 @@ function renderImgs() {
     photoGallery.innerHTML += getImgsTemplate(i);
   }
 }
+
 /** creates html for gallery */
 function getImgsTemplate(i) {
   return /*html*/ `
@@ -94,6 +98,7 @@ function getImgsTemplate(i) {
   </button>
   `;
 }
+
 /** opens dialog with selected img */
 function openDialog(i) {
   currentImgIndex = i;
@@ -102,11 +107,13 @@ function openDialog(i) {
   stopDialogClosingOnCard();
   focusNextButton();
 }
+
 /** focusing next button if you open img via Tab-button on keyboard */
 function focusNextButton() {
   const nextButton = document.getElementById("nextButton");
   nextButton.focus();
 }
+
 /** render dialog and creates needed html with all informations */
 function renderDialog(i) {
   return /*html*/ `
@@ -179,11 +186,13 @@ function showPreviousImg() {
   }
   updateDialogImg();
 }
+
 /** updates dialog informations, title, img, counter */
 function updateDialogImg() {
   DIALOG.innerHTML = renderDialog(currentImgIndex);
   stopDialogClosingOnCard();
 }
+
 /** stops event-bubbling on card body */
 function stopDialogClosingOnCard() {
   const DialogCard = document.getElementById("DialogCard");
@@ -191,6 +200,7 @@ function stopDialogClosingOnCard() {
     event.stopPropagation();
   });
 }
+
 /** closes dialog on background-click */
 DIALOG.addEventListener("click", function () {
   closeDialog();
