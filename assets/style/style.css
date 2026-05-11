@@ -83,6 +83,9 @@ h6 {
 
 body {
   background-color: var(--bg_darkblue);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -102,8 +105,6 @@ button {
 .footer_section {
   background-color: var(--bg_lightblue);
   padding: 20px 0px;
-  position: sticky;
-  bottom: 0;
 }
 
 .footer {
@@ -132,6 +133,7 @@ button {
   align-items: center;
   padding: 160px 0px 159px 0px;
   gap: 80px;
+  flex: 1;
 }
 
 #photo_gallery {
